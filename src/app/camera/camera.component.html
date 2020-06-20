@@ -1,8 +1,16 @@
 <div class="camera-container">
-  <div class="qr-selector">
-  </div>
+  <div class="qr-selector" [class.qr-selector-error]="error" [class.qr-selector-success]="success"></div>
 
-  <zxing-scanner (scanSuccess)="onCodeResult($event)" [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX', 'CODABAR']"></zxing-scanner>
+  <zxing-scanner 
+    (torchCompatible)="onTorchCompatible($event)"
+    (camerasFound)="camerasFoundHandler($event)"
+    (camerasNotFound)="camerasNotFoundHandler($event)"
+    (scanSuccess)="scanSuccessHandler($event)"
+    (scanError)="scanErrorHandler($event)"
+    (scanFailure)="scanFailureHandler($event)"
+    (scanComplete)="scanCompleteHandler($event)"
+    [formats]="['QR_CODE']">
+  </zxing-scanner>
 
   <section class="results" *ngIf="qrResultString">
     <div>

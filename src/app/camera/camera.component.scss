@@ -13,7 +13,9 @@
   z-index: 1;
 }
 .qr-selector {
-  border: 5px solid red;
+  border-style: solid;
+  border-width: 0.20em;
+  border-color: white;
   border-radius: 15px;
   z-index: 2;
   position: absolute;
@@ -23,4 +25,11 @@
   height: 50vmin;
 }
 
+.qr-selector-error {
+  border-color: red;
+}
+
+.qr-selector-success {
+  border-color: green;
+}
   
