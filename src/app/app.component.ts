@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { UpdateService } from './services/update/update.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'secret-game';
+  constructor(private update: UpdateService) {
+    
+  }
 }

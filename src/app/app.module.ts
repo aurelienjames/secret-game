@@ -9,17 +9,20 @@ import { environment } from '../environments/environment';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 import { CameraComponent } from './camera/camera.component';
 import { HomeComponent } from './home/home.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CameraComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatSnackBarModule,
     ZXingScannerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
