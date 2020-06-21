@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 
 @Component({
   selector: 'app-camera',
@@ -10,9 +11,23 @@ export class CameraComponent implements OnInit {
 
   error: boolean;
   success: boolean;
+
   qrResultString: string;
 
-  constructor(private _snackBar: MatSnackBar) { }
+  start: boolean;
+  startButton: string;
+  flash: boolean;
+  flashButton: string;
+
+  @ViewChild('scanner', { static: false })
+  scanner: ZXingScannerComponent;
+
+  constructor(private _snackBar: MatSnackBar) {
+    this.start = false;
+    this.startButton = 'play_circle_filled';
+    this.flash = false;
+    this.flashButton = 'flash_off';
+  }
 
   ngOnInit(): void {
   }
@@ -66,6 +81,29 @@ export class CameraComponent implements OnInit {
       horizontalPosition: 'center',
       verticalPosition: 'top',
     });
+  }
+
+  onClickStartStop() {
+    this.start = !this.start;
+
+    if (this.startButton === 'play_circle_filled') {
+      this.startButton = 'stop_circle';
+    } else {
+      this.startButton = 'play_circle_filled';
+    }
+  }
+
+  onClickFlipCamera() {
+    
+  }
+
+  onClickFlash() {
+    this.flash = !this.flash;
+    if (this.flashButton === 'flash_off') {
+      this.flashButton = 'flash_on';
+    } else {
+      this.flashButton = 'flash_off';
+    }
   }
 
 }

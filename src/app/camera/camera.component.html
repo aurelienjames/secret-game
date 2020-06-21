@@ -1,7 +1,9 @@
 <div class="camera-container">
   <div class="qr-selector" [class.qr-selector-error]="error" [class.qr-selector-success]="success"></div>
 
-  <zxing-scanner 
+  <zxing-scanner #scanner *ngIf="start"
+    [enable]="start"
+    [torch]="flash"
     (torchCompatible)="onTorchCompatible($event)"
     (camerasFound)="camerasFoundHandler($event)"
     (camerasNotFound)="camerasNotFoundHandler($event)"
@@ -12,11 +14,15 @@
     [formats]="['QR_CODE']">
   </zxing-scanner>
 
-  <section class="results" *ngIf="qrResultString">
-    <div>
-      <small>Result</small>
-      <strong>{{ qrResultString }}</strong>
-    </div>
-    <button mat-icon-button (click)="clearResult()">&times;</button>
-  </section>
+  <div class="actions-container">
+    <button class="actions-item" mat-icon-button aria-label="Menu icon" (click)="onClickFlipCamera()">
+      <mat-icon>flip_camera_android</mat-icon>
+    </button>
+    <button class="actions-item" mat-icon-button aria-label="Menu icon" (click)="onClickStartStop()">
+        <mat-icon class="icon-big">{{ startButton }}</mat-icon>
+    </button>
+    <button class="actions-item" mat-icon-button aria-label="Menu icon" (click)="onClickFlash()">
+      <mat-icon>{{ flashButton }}</mat-icon>
+    </button>
+</div> 
 </div>

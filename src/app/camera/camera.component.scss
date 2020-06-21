@@ -19,7 +19,7 @@
   border-radius: 15px;
   z-index: 2;
   position: absolute;
-  top: calc(50vh - 25vmin);
+  top: calc(40vh - 25vmin);
   left: calc(50vw - 25vmin);
   width: 50vmin;
   height: 50vmin;
@@ -31,5 +31,25 @@
 
 .qr-selector-success {
   border-color: green;
+}
+
+.actions-container {
+  z-index: 2;
+  position: absolute;
+  top: calc(50vh + 25vmin);
+  left: calc(50vw - 25vmin);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+  width: 50vmin;
+}
+
+.actions-item {
+  margin: 1.5em;
+}
+
+.icon-big {
+  transform: scale(3);
 }
   
