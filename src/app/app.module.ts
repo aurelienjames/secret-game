@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
@@ -20,13 +21,17 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { firebaseConfig } from '../firebaseConfig';
+import { LoginComponent } from './components/login/login.component';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     CameraComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
@@ -37,7 +42,10 @@ import { firebaseConfig } from '../firebaseConfig';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
+    MatInputModule,
     ZXingScannerModule,
+    FormsModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [
