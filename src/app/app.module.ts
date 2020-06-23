@@ -13,9 +13,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
-import { CameraComponent } from './camera/camera.component';
-import { HomeComponent } from './home/home.component';
-import { MenuComponent } from './menu/menu.component';
+import { CameraComponent } from './components/camera/camera.component';
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
