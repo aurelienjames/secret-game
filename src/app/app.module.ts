@@ -17,6 +17,10 @@ import { CameraComponent } from './components/camera/camera.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { firebaseConfig } from '../firebaseConfig';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +29,8 @@ import { MenuComponent } from './components/menu/menu.component';
     MenuComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
